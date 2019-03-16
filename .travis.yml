@@ -1,0 +1,10 @@
+sudo: required
+services: 
+  - docker
+
+before_install: 
+  - docker build -t thetkpark/udemy-docker-react -f Dockerfile.dev .
+
+script: 
+  - docker run thetkpark/udemy-docker-react npm run test -- --coverage
+
